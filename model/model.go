@@ -7,5 +7,14 @@ type Contact struct {
 }
 
 type ErrorResp struct {
-	message string `json:"message"`
+	Message string `json:"message"`
+}
+
+type LoginData struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type Product struct {
+	Name string `json:"name"`
 }
