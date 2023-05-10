@@ -13,7 +13,6 @@ func ValidateMethod(method string, next http.Handler) http.Handler {
 			http.Error(w, "method is not allowed!", http.StatusMethodNotAllowed)
 			return
 		}
-
 		next.ServeHTTP(w, r)
 	})
 }
@@ -30,6 +29,8 @@ func Auth(next http.Handler) http.Handler {
 			return
 		}
 
+		// context adalah object yg akan dishare between middleware chain/handler, 
+		// dimana context ini independent utk tiap request
 		ctx := r.Context()
 		ctx = context.WithValue(ctx, "username", c.Value)
 
